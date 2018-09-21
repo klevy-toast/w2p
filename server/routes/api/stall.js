@@ -14,6 +14,14 @@ module.exports = (app) => {
         var stall2 = stalls.find(obj => {
           return obj.id === (i*2+1);
         });
+        if (Math.abs(stall1.lastupdated - Date.now()) > 300000) {
+          stall1.avail = 0;
+          stall1.save().catch((err) => next(err));
+        }
+        if (Math.abs(stall2.lastupdated - Date.now()) > 300000) {
+          stall2.avail = 0;
+          stall2.save().catch((err) => next(err));
+        }
         console.log(i, stall1, stall2);
         if (stall1 && stall2){
           if (stall1.avail == -1 && stall2.avail == -1) {
