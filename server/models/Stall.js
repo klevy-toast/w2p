@@ -10,7 +10,7 @@ const StallSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  lastupdated : { type : Date, default: Date.now }
+  lastupdated : { type : Date }
 });
 
 module.exports = mongoose.model('Stalls', StallSchema);
