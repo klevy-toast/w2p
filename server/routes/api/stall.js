@@ -48,7 +48,7 @@ module.exports = (app) => {
       .exec()
       .then((stall) => {
         stall.avail=req.query.avail;
-
+        stall.lastupdated = Date.now;
         stall.save()
           .then(() => res.json(stall))
           .catch((err) => next(err));

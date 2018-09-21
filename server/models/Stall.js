@@ -9,7 +9,8 @@ const StallSchema = new mongoose.Schema({
   avail: {
     type: Number,
     default: 0
-  }
+  },
+  lastupdated : { type : Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Stalls', StallSchema);
